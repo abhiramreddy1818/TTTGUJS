@@ -1,2 +1,188 @@
-ioerioefrjhrn
-wnjwjkg
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Dark Mode Default */
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+/* Light Mode */
+body:not(.dark-mode) {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #4fc3f7;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode button (light button) */
+body.dark-mode .theme-toggle {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Light mode button (dark button) */
+body:not(.dark-mode) .theme-toggle {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+/* Game Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    gap: 20px;
+}
+
+/* Game Board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: min(60vmin, 400px);
+    height: min(60vmin, 400px);
+    margin: 0 auto;
+}
+
+/* Game Cells */
+.btn1 {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    font-size: clamp(2rem, 8vmin, 4rem);
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 1;
+}
+
+/* Dark mode cells (light buttons) */
+body.dark-mode .btn1 {
+    background-color: #ffffff;
+}
+
+/* Light mode cells (darker buttons) */
+body:not(.dark-mode) .btn1 {
+    background-color: #e0e0e0;
+}
+
+.btn1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn1:active {
+    transform: translateY(1px);
+}
+
+.btn1[disabled] {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* Game Controls */
+.reset {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #4fc3f7;
+    color: #121212;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    width: auto;
+    min-width: 120px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.reset:hover {
+    background-color: #81d4fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Winner Display */
+.winnerdiv {
+    margin-top: 20px;
+    min-height: 30px;
+}
+
+.winner {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #121212;
+    padding: 10px 20px;
+    background-color: #4fc3f7;
+    border-radius: 8px;
+    display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .container {
+        height: 60vh;
+    }
+    
+    .board {
+        width: 90vw;
+        height: 90vw;
+        max-width: 300px;
+        max-height: 300px;
+    }
+    
+    .btn1 {
+        font-size: 2rem;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+    }
+}
