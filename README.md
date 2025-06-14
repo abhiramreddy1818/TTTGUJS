@@ -1,4 +1,4 @@
-# Theme-Toggle Tic-Tac-Toe
+#  Tic-Tac-Toe
 
 A responsive Tic-Tac-Toe game with light/dark theme toggle functionality built with HTML, CSS, and JavaScript.
 
